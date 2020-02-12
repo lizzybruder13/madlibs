@@ -15,8 +15,8 @@ AWESOMENESS = [
 ]
 
 STUDENTS = [
-    'Liz', 'Elizabeth', 'Jenna C', 'Jenna S', 'Hana', 'Hani', 'Sweety', 'Archana'
-    'Margi', 'Sandra', 'Bri', 'Lulu', 'Fabiola', 'Treanna', 'Whitney', 'Fiona'
+    'Liz', 'Elizabeth', 'Jenna C', 'Jenna S', 'Hana', 'Hani', 'Sweety', 'Archana',
+    'Margi', 'Sandra', 'Bri', 'Lulu', 'Fabiola', 'Treanna', 'Whitney', 'Fiona',
     'Mike', 'Quynh', 'Judy', 'Jay Lynn', 'Jael', 'Lavania'
 ]
 
@@ -62,8 +62,19 @@ def show_madlib_form():
     elif response == "yes":
 
         return render_template("game.html", player=player, student=STUDENTS)
-        # return render_template("game.html", person=player)
 
+
+@app.route('/madlib')
+def show_madlib():
+    """ Display madlib with chosen fields."""
+
+    player = request.args.get("person")
+    hue = request.args.get("color")
+    thing = request.args.get("noun")
+    descriptor = request.args.get("adjective")
+
+    return render_template("madlibs.html", person=player, color=hue, noun=thing,
+                           adjective=descriptor)
 
 
 if __name__ == '__main__':
