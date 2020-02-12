@@ -72,9 +72,22 @@ def show_madlib():
     hue = request.args.get("color")
     thing = request.args.get("noun")
     descriptor = request.args.get("adjective")
+    cat = request.args.get("cat")
+    rat = request.args.get("rat")
+    dog = request.args.get("dog")
+    pets = []
+
+    if cat is not None:
+        pets.append(cat)
+    if rat is not None:
+        pets.append(rat)
+    if dog is not None:
+        pets.append(dog)
+
+    all_pets = ", ".join(pets)
 
     return render_template("madlibs.html", person=player, color=hue, noun=thing,
-                           adjective=descriptor)
+                           adjective=descriptor, pets=all_pets)
 
 
 if __name__ == '__main__':
