@@ -4,6 +4,17 @@
   <title>A Compliment</title>
 </head>
 <body>
-    Hi {{ person }}! I think you're {{ compliment }}!
+  Hi {{ person }}! I think you're {{ compliment }}!<br><br>
+  <form action="/game">
+    <!-- Using hidden input type to continue passing the person/player's name along with the form so subsequent forms can continue to find it.
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/hidden-->
+    <input type="hidden" name="person" value='{{ person }}'>
+    Would you like to play a game?
+    <div><input type="radio" id="yes" name="game" value="yes" checked>
+    <label for="yes">Yes</label>
+    <input type="radio" id="no" name="game" value="no">
+    <label for="no">No</label></div>
+    <input type="submit" value="Let's Play">
+  </form>
 </body>
 </html>

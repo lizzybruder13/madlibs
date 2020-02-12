@@ -14,6 +14,12 @@ AWESOMENESS = [
     'smashing', 'lovely',
 ]
 
+CLASS = [
+    'Liz', 'Elizabeth', 'Jenna C', 'Jenna S', 'Hana', 'Hani', 'Sweety', 'Archana'
+    'Margi', 'Sandra', 'Bri', 'Lulu', 'Fabiola', 'Treanna', 'Whitney', 'Fiona'
+    'Mike', 'Quynh', 'Judy', 'Jay Lynn', 'Jael', 'Lavania'
+]
+
 
 @app.route('/')
 def start_here():
@@ -40,6 +46,23 @@ def greet_person():
     return render_template("compliment.html",
                            person=player,
                            compliment=compliment)
+
+
+@app.route('/game')
+def show_madlib_form():
+    """Plays a game."""
+
+    player = request.args.get("person")
+    response = request.args.get("game")
+
+    if response == "no":
+
+        return render_template("goodbye.html", person=player)
+
+    elif response == "yes":
+
+        return render_template("game.html", person=player)
+
 
 
 if __name__ == '__main__':
