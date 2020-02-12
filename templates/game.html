@@ -1,0 +1,27 @@
+<!docstyle html>
+<html>
+<head>
+  <title>The Game</title>
+</head>
+<body>
+  <h1>Welcome to the game, {{ player }}!</h1><br>
+  <label for="person">Please select a person:</label>
+  <select name="person">
+    <!-- Jinja logic syntax to generate a dropdown from STUDENTS -->
+    {% for person in student %}
+      <option value="person">{{ person }}</option>
+    {% endfor %}
+  </select><br><br>
+  
+  <label for="color">Please enter a color:</label>
+  <input type="text" name="color"><br><br>
+
+  <label for="noun">Please enter a noun:</label>
+  <input type="text" name="noun"><br><br>
+
+  <label for="adjective">Please enter an adjective:</label>
+  <input type="text" name="adjective"><br><br>
+
+  <input type="submit" value="I'm ready, let's do this!">
+</body>
+</html>
