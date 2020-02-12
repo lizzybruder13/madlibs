@@ -14,7 +14,7 @@ AWESOMENESS = [
     'smashing', 'lovely',
 ]
 
-CLASS = [
+STUDENTS = [
     'Liz', 'Elizabeth', 'Jenna C', 'Jenna S', 'Hana', 'Hani', 'Sweety', 'Archana'
     'Margi', 'Sandra', 'Bri', 'Lulu', 'Fabiola', 'Treanna', 'Whitney', 'Fiona'
     'Mike', 'Quynh', 'Judy', 'Jay Lynn', 'Jael', 'Lavania'
@@ -61,7 +61,8 @@ def show_madlib_form():
 
     elif response == "yes":
 
-        return render_template("game.html", person=player)
+        return render_template("game.html", player=player, student=STUDENTS)
+        # return render_template("game.html", person=player)
 
 
 
